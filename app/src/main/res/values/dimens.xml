@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lists_padding_start">16dp</dimen>
+    <dimen name="lists_padding_end">16dp</dimen>
+    <dimen name="lists_padding_top">16dp</dimen>
+    <dimen name="lists_padding_bottom">32dp</dimen>
+
+    <dimen name="text_views_margin_start">16dp</dimen>
+
+    <dimen name="currency_icon_width">48dp</dimen>
+    <dimen name="currency_icon_height">@dimen/currency_icon_width</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Cryptocurrency</string>
+
+    <string name="menu_currency_list_bottom_list">List</string>
+    <string name="menu_currency_list_bottom_converter">Converter</string>
+
+    <string name="activity_currency_list">Cryptocurrency</string>
+    <string name="activity_currency_list_price">$%.2f USD</string>
+</resources>
