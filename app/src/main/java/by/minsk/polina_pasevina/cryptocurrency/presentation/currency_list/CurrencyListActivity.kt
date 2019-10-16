@@ -7,6 +7,7 @@ import by.minsk.polina_pasevina.cryptocurrency.R
 import by.minsk.polina_pasevina.cryptocurrency.injection.Injector
 import by.minsk.polina_pasevina.cryptocurrency.injection.currency_list.CurrencyListModule
 import by.minsk.polina_pasevina.cryptocurrency.presentation.common.MvpActivity
+import by.minsk.polina_pasevina.cryptocurrency.presentation.common.updateVisibility
 import kotlinx.android.synthetic.main.activity_currency_list.*
 import java.io.Serializable
 
@@ -50,13 +51,10 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
     }
 
     private fun renderLoading(show: Boolean) {
-        val visibility = if (show) View.VISIBLE else View.GONE
-        if (progressBar.visibility != visibility) {
-            progressBar.visibility = visibility
-        }
+        progressBar.updateVisibility(show)
     }
 
     private fun renderError(show: Boolean) {
-
+        textViewError.updateVisibility(show)
     }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_horizontal">16dp</dimen>
+
     <dimen name="lists_padding_start">16dp</dimen>
     <dimen name="lists_padding_end">16dp</dimen>
     <dimen name="lists_padding_top">16dp</dimen>

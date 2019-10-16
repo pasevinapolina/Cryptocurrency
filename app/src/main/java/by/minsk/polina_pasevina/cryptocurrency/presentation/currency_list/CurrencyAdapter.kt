@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import by.minsk.polina_pasevina.cryptocurrency.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_currency.view.*
 
 class CurrencyAdapter(
@@ -55,9 +56,15 @@ class CurrencyAdapter(
         private fun onItemChanged() {
             itemView.apply {
                 textViewCurrencyName.text = currency.name
-                textViewCurrencyPrice.text = currency.price?.let {
-                    String.format(context.getString(R.string.activity_currency_list_price), it)
-                }.orUnknown()
+
+                textViewCurrencyPrice.text = currency.price
+                    ?.let { String.format(context.getString(R.string.activity_currency_list_price), it) }.orUnknown()
+
+                Picasso.get()
+                    .load(currency.imageUrl)
+                    .placeholder(R.drawable.ic_bitcoin)
+                    .into(imageViewCurrency)
+
             }
         }
 

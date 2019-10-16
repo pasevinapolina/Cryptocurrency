@@ -17,5 +17,5 @@ data class CryptocurrencyContract(
     val id: String,
     val name: String,
     val usdPrice: BigDecimal?,
-    val imageUrl: String
+    val imageUrl: String?
 )

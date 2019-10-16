@@ -28,6 +28,12 @@ data class RequestState<T>(
                 errorMessage
             )
         }
+
+        fun <T> connectionFailed() = RequestState<T>(
+            status = RequestStatus.FAILED,
+            error = ConnectionFailedException(),
+            data = null
+        )
     }
 }
 

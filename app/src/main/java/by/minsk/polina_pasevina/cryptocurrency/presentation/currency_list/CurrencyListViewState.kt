@@ -18,5 +18,5 @@ data class CurrencyViewState(
     val id: String,
     val name: String,
     val price: Float?,
-    val imageUrl: String
+    val imageUrl: String?
 )
