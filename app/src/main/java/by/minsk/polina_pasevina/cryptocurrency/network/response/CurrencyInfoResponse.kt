@@ -13,7 +13,7 @@ data class CurrencyInfoResponse(
     val description: String,
 
     @JsonProperty("category")
-    val category: Long,
+    val category: String,
 
     @JsonProperty("date_added")
     val addedDate: String

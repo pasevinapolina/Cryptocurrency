@@ -1,4 +1,4 @@
-package by.minsk.polina_pasevina.cryptocurrency.network
+package by.minsk.polina_pasevina.cryptocurrency.network.utils
 
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.JsonSerializer

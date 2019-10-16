@@ -1,7 +1,7 @@
 package by.minsk.polina_pasevina.cryptocurrency.injection.common
 
-import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptocurrenciesInteractor
-import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptocurrenciesInteractorImpl
+import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptoCurrenciesInteractor
+import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptoCurrenciesInteractorImpl
 import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketApi
 import dagger.Module
 import dagger.Provides
@@ -12,7 +12,7 @@ class InteractorsModule {
     @Provides
     fun provideGetCryptocurrenciesInteractor(
         coinMarketApi: CoinMarketApi
-    ): GetCryptocurrenciesInteractor {
-        return GetCryptocurrenciesInteractorImpl(coinMarketApi)
+    ): GetCryptoCurrenciesInteractor {
+        return GetCryptoCurrenciesInteractorImpl(coinMarketApi)
     }
 }

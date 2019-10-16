@@ -44,7 +44,7 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
                 adapter.update(state.currencies)
             }
 
-            override fun openCurrencyDetailsScreen(id: String) {
+            override fun openCurrencyDetailsScreen(id: Long) {
                 // TODO: startActivity
             }
         }

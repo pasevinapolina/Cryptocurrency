@@ -1,8 +1,8 @@
 package by.minsk.polina_pasevina.cryptocurrency.network.request
 
-import by.minsk.polina_pasevina.cryptocurrency.network.BadRequestException
-import by.minsk.polina_pasevina.cryptocurrency.network.ClientException
-import by.minsk.polina_pasevina.cryptocurrency.network.ConnectionFailedException
+import by.minsk.polina_pasevina.cryptocurrency.network.utils.BadRequestException
+import by.minsk.polina_pasevina.cryptocurrency.network.utils.ClientException
+import by.minsk.polina_pasevina.cryptocurrency.network.utils.ConnectionFailedException
 import by.minsk.polina_pasevina.cryptocurrency.network.response.BaseResponse
 import by.minsk.polina_pasevina.cryptocurrency.network.response.StatusResponse
 
@@ -23,7 +23,9 @@ data class RequestState<T>(
 
         private fun StatusResponse.toClientException() = when (errorCode) {
             0 -> null
-            404 -> BadRequestException(errorMessage)
+            404 -> BadRequestException(
+                errorMessage
+            )
             else -> ConnectionFailedException(
                 errorMessage
             )

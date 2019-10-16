@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import by.minsk.polina_pasevina.cryptocurrency.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_currency.view.*
+import java.math.BigDecimal
+import java.text.DecimalFormat
 
 class CurrencyAdapter(
-    private val onItemClicked: (String) -> Unit
+    private val onItemClicked: (Long) -> Unit
 ) : RecyclerView.Adapter<CurrencyAdapter.CurrencyViewHolder>() {
 
     private val currencies: MutableList<CurrencyViewState> = mutableListOf()
@@ -58,7 +60,12 @@ class CurrencyAdapter(
                 textViewCurrencyName.text = currency.name
 
                 textViewCurrencyPrice.text = currency.price
-                    ?.let { String.format(context.getString(R.string.activity_currency_list_price), it) }.orUnknown()
+                    ?.let {
+                        String.format(
+                            context.getString(R.string.activity_currency_list_price),
+                            it.toMoneyFormat()
+                        )
+                    }.orUnknown()
 
                 Picasso.get()
                     .load(currency.imageUrl)
@@ -69,6 +76,8 @@ class CurrencyAdapter(
         }
 
         private fun Any?.orUnknown() = this?.toString() ?: itemView.context.getString(R.string.activity_currency_list_price_unknown)
+
+        private fun BigDecimal.toMoneyFormat() = DecimalFormat("#,###.00").format(this)
     }
 
     private class CurrencyDiffCallback(

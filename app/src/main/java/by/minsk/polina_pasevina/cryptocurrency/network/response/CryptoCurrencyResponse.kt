@@ -1,11 +1,11 @@
 package by.minsk.polina_pasevina.cryptocurrency.network.response
 
-import by.minsk.polina_pasevina.cryptocurrency.network.MoneySerializer
+import by.minsk.polina_pasevina.cryptocurrency.network.utils.MoneySerializer
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import java.math.BigDecimal
 
-data class LatestListingResponse(
+data class CryptoCurrencyResponse(
     @JsonProperty("id")
     val id: Long,
 

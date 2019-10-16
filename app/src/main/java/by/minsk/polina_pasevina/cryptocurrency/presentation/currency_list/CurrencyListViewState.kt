@@ -1,5 +1,7 @@
 package by.minsk.polina_pasevina.cryptocurrency.presentation.currency_list
 
+import java.math.BigDecimal
+
 data class CurrencyListViewState(
     val loading: Boolean,
     val currencies: List<CurrencyViewState>,
@@ -15,8 +17,8 @@ data class CurrencyListViewState(
 }
 
 data class CurrencyViewState(
-    val id: String,
+    val id: Long,
     val name: String,
-    val price: Float?,
+    val price: BigDecimal?,
     val imageUrl: String?
 )

@@ -4,16 +4,17 @@ import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketApi
 import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketApiImpl
 import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketClientFactory
 import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketClientFactoryImpl
+import by.minsk.polina_pasevina.cryptocurrency.gateways.providers.ClientProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [ProvidersModule::class])
 class NetworkModule {
     @Provides
     @Singleton
-    fun provideRetrofitClientFactory(): CoinMarketClientFactory {
-        return CoinMarketClientFactoryImpl()
+    fun provideRetrofitClientFactory(clientProvider: ClientProvider): CoinMarketClientFactory {
+        return CoinMarketClientFactoryImpl(clientProvider)
     }
 
     @Provides
