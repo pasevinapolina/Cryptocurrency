@@ -22,14 +22,16 @@ abstract class BaseMvpPresenter<S, V : MvpView<S>>(initialState: S) : MvpPresent
         this.view = null
     }
 
-    private fun isViewAttached() = view != null
+    protected fun isViewAttached() = view != null
 
     private fun renderState() {
         view?.render(state)
     }
 
     @CallSuper
-    override fun onDestroy() {
+    override fun onDestroy() {}
 
+    protected fun navigate(command: (V) -> Unit) {
+        view?.let { command(it) }
     }
 }

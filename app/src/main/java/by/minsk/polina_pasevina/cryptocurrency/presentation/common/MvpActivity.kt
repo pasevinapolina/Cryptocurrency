@@ -11,9 +11,18 @@ abstract class MvpActivity<V : MvpView<*>, P : MvpPresenter<V>> : AppCompatActiv
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = createPresenter()
+        setContentView(contentViewId)
+        presenter = (lastCustomNonConfigurationInstance as? P) ?: createPresenter()
+    }
+
+    override fun onResume() {
+        super.onResume()
         val view = getView()
         presenter?.attachView(view)
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): Any {
+        return presenter as Any
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -26,6 +35,8 @@ abstract class MvpActivity<V : MvpView<*>, P : MvpPresenter<V>> : AppCompatActiv
         presenter?.onDestroy()
         presenter = null
     }
+
+    abstract val contentViewId: Int
 
     abstract fun getView(): V
 

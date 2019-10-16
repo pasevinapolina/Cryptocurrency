@@ -14,9 +14,10 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
 
     private val adapter get() = recyclerViewCurrencies.adapter as CurrencyAdapter
 
+    override val contentViewId = R.layout.activity_currency_list
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_currency_list)
         initViews()
     }
 
@@ -25,10 +26,7 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         recyclerViewCurrencies.layoutManager = LinearLayoutManager(this)
-        recyclerViewCurrencies.adapter =
-            CurrencyAdapter { id ->
-                presenter?.onCurrencyClicked(id)
-            }
+        recyclerViewCurrencies.adapter = CurrencyAdapter { id -> presenter?.onCurrencyClicked(id) }
         recyclerViewCurrencies.setHasFixedSize(false)
     }
 
@@ -41,7 +39,12 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
 
             override fun render(state: CurrencyListViewState) {
                 renderLoading(state.loading)
+                renderError(state.showError)
                 adapter.update(state.currencies)
+            }
+
+            override fun openCurrencyDetailsScreen(id: String) {
+                // TODO: startActivity
             }
         }
     }
@@ -51,5 +54,9 @@ class CurrencyListActivity : MvpActivity<CurrencyListView, CurrencyListPresenter
         if (progressBar.visibility != visibility) {
             progressBar.visibility = visibility
         }
+    }
+
+    private fun renderError(show: Boolean) {
+
     }
 }

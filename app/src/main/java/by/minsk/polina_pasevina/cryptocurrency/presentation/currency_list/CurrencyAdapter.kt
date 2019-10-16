@@ -9,7 +9,7 @@ import by.minsk.polina_pasevina.cryptocurrency.R
 import kotlinx.android.synthetic.main.list_item_currency.view.*
 
 class CurrencyAdapter(
-    private val onItemClicked: (Int) -> Unit
+    private val onItemClicked: (String) -> Unit
 ) : RecyclerView.Adapter<CurrencyAdapter.CurrencyViewHolder>() {
 
     private val currencies: MutableList<CurrencyViewState> = mutableListOf()
@@ -55,12 +55,13 @@ class CurrencyAdapter(
         private fun onItemChanged() {
             itemView.apply {
                 textViewCurrencyName.text = currency.name
-                textViewCurrencyPrice.text = String.format(
-                    context.getString(R.string.activity_currency_list_price),
-                    currency.price
-                )
+                textViewCurrencyPrice.text = currency.price?.let {
+                    String.format(context.getString(R.string.activity_currency_list_price), it)
+                }.orUnknown()
             }
         }
+
+        private fun Any?.orUnknown() = this?.toString() ?: itemView.context.getString(R.string.activity_currency_list_price_unknown)
     }
 
     private class CurrencyDiffCallback(

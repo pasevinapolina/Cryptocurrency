@@ -1,6 +1,7 @@
 package by.minsk.polina_pasevina.cryptocurrency.interactors
 
 import io.reactivex.Observable
+import java.math.BigDecimal
 
 interface GetCryptocurrenciesInteractor {
     fun get(): Observable<GetCryptocurrenciesContract>
@@ -13,8 +14,8 @@ sealed class GetCryptocurrenciesContract {
 }
 
 data class CryptocurrencyContract(
-    val id: Int,
+    val id: String,
     val name: String,
-    val usdPrice: Float,
+    val usdPrice: BigDecimal?,
     val imageUrl: String
 )

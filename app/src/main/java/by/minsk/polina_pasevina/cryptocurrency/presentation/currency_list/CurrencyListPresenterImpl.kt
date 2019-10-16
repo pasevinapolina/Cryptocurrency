@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposables
 import io.reactivex.schedulers.Schedulers
 
 class CurrencyListPresenterImpl(
-    private val getCryptocurrenciesInteractor: GetCryptocurrenciesInteractor
+    getCryptocurrenciesInteractor: GetCryptocurrenciesInteractor
 ) : BaseMvpPresenter<CurrencyListViewState, CurrencyListView>(CurrencyListViewState.INITIAL),
     CurrencyListPresenter {
 
@@ -20,12 +20,18 @@ class CurrencyListPresenterImpl(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map { contract ->
-                val currencies = when (contract) {
-                    is GetCryptocurrenciesContract.Success -> contract.currencies.map(contractToViewState)
-                    is GetCryptocurrenciesContract.Failed -> emptyList()
+                when (contract) {
+                    is GetCryptocurrenciesContract.Success ->
+                        CurrencyListViewState(
+                            loading = false,
+                            currencies = contract.currencies.map(contractToViewState),
+                            showError = false
+                        )
+                    is GetCryptocurrenciesContract.Failed ->
+                        CurrencyListViewState(loading = false, currencies = emptyList(), showError = true)
                 }
-                CurrencyListViewState(false, currencies)
-            }.subscribe { s -> state = s }
+            }
+            .subscribe { s -> state = s }
     }
 
     override fun onDestroy() {
@@ -33,15 +39,15 @@ class CurrencyListPresenterImpl(
         disposable.dispose()
     }
 
-    override fun onCurrencyClicked(id: Int) {
-        // TODO: open details screen
+    override fun onCurrencyClicked(id: String) {
+        navigate { v -> v.openCurrencyDetailsScreen(id) }
     }
 
     private val contractToViewState = { contract: CryptocurrencyContract ->
         CurrencyViewState(
             id = contract.id,
             name = contract.name,
-            price = contract.usdPrice,
+            price = contract.usdPrice?.toFloat(),
             imageUrl = contract.imageUrl
         )
     }

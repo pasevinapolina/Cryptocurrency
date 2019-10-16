@@ -6,4 +6,5 @@
 
     <string name="activity_currency_list">Cryptocurrency</string>
     <string name="activity_currency_list_price">$%.2f USD</string>
+    <string name="activity_currency_list_price_unknown">Unknown</string>
 </resources>
