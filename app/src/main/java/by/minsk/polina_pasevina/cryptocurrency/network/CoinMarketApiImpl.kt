@@ -1,12 +1,14 @@
 package by.minsk.polina_pasevina.cryptocurrency.network
 
 import by.minsk.polina_pasevina.cryptocurrency.entities.QuoteType
+import by.minsk.polina_pasevina.cryptocurrency.gateways.network.CoinMarketApi
 import by.minsk.polina_pasevina.cryptocurrency.network.request.RequestState
 import by.minsk.polina_pasevina.cryptocurrency.network.response.CurrencyInfoResponse
 import by.minsk.polina_pasevina.cryptocurrency.network.response.CryptoCurrencyResponse
 import io.reactivex.Observable
 
-class CoinMarketApiImpl(private val clientFactory: CoinMarketClientFactory) : CoinMarketApi {
+class CoinMarketApiImpl(private val clientFactory: CoinMarketClientFactory) :
+    CoinMarketApi {
 
     override fun getCurrencyList(
         quotes: List<QuoteType>

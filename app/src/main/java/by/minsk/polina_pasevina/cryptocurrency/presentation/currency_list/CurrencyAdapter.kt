@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import by.minsk.polina_pasevina.cryptocurrency.R
+import by.minsk.polina_pasevina.cryptocurrency.presentation.utils.toMoneyFormat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_currency.view.*
 import java.math.BigDecimal
@@ -59,13 +60,9 @@ class CurrencyAdapter(
             itemView.apply {
                 textViewCurrencyName.text = currency.name
 
-                textViewCurrencyPrice.text = currency.price
-                    ?.let {
-                        String.format(
-                            context.getString(R.string.activity_currency_list_price),
-                            it.toMoneyFormat()
-                        )
-                    }.orUnknown()
+                textViewCurrencyPrice.text = currency.price?.let { price ->
+                    String.format(context.getString(R.string.activity_currency_list_price), price.toMoneyFormat())
+                }.orUnknown()
 
                 Picasso.get()
                     .load(currency.imageUrl)
@@ -76,8 +73,6 @@ class CurrencyAdapter(
         }
 
         private fun Any?.orUnknown() = this?.toString() ?: itemView.context.getString(R.string.activity_currency_list_price_unknown)
-
-        private fun BigDecimal.toMoneyFormat() = DecimalFormat("#,###.00").format(this)
     }
 
     private class CurrencyDiffCallback(

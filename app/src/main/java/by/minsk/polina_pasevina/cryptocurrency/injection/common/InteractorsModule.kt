@@ -2,7 +2,7 @@ package by.minsk.polina_pasevina.cryptocurrency.injection.common
 
 import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptoCurrenciesInteractor
 import by.minsk.polina_pasevina.cryptocurrency.interactors.GetCryptoCurrenciesInteractorImpl
-import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketApi
+import by.minsk.polina_pasevina.cryptocurrency.gateways.network.CoinMarketApi
 import dagger.Module
 import dagger.Provides
 

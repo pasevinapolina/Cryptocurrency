@@ -23,12 +23,8 @@ data class RequestState<T>(
 
         private fun StatusResponse.toClientException() = when (errorCode) {
             0 -> null
-            404 -> BadRequestException(
-                errorMessage
-            )
-            else -> ConnectionFailedException(
-                errorMessage
-            )
+            404 -> BadRequestException(errorMessage)
+            else -> ConnectionFailedException(errorMessage)
         }
 
         fun <T> connectionFailed() = RequestState<T>(

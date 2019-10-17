@@ -1,4 +1,4 @@
-package by.minsk.polina_pasevina.cryptocurrency.gateways.providers
+package by.minsk.polina_pasevina.cryptocurrency.network
 
 import okhttp3.OkHttpClient
 

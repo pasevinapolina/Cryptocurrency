@@ -2,12 +2,11 @@ package by.minsk.polina_pasevina.cryptocurrency.presentation.currency_list
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.View
 import by.minsk.polina_pasevina.cryptocurrency.R
 import by.minsk.polina_pasevina.cryptocurrency.injection.Injector
 import by.minsk.polina_pasevina.cryptocurrency.injection.currency_list.CurrencyListModule
 import by.minsk.polina_pasevina.cryptocurrency.presentation.common.MvpActivity
-import by.minsk.polina_pasevina.cryptocurrency.presentation.common.updateVisibility
+import by.minsk.polina_pasevina.cryptocurrency.presentation.utils.updateVisibility
 import kotlinx.android.synthetic.main.activity_currency_list.*
 import java.io.Serializable
 

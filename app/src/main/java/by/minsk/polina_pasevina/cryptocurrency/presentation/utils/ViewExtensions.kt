@@ -1,4 +1,4 @@
-package by.minsk.polina_pasevina.cryptocurrency.presentation.common
+package by.minsk.polina_pasevina.cryptocurrency.presentation.utils
 
 import android.view.View
 

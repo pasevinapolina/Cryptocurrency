@@ -1,7 +1,7 @@
 package by.minsk.polina_pasevina.cryptocurrency.interactors
 
 import by.minsk.polina_pasevina.cryptocurrency.entities.QuoteType
-import by.minsk.polina_pasevina.cryptocurrency.network.CoinMarketApi
+import by.minsk.polina_pasevina.cryptocurrency.gateways.network.CoinMarketApi
 import by.minsk.polina_pasevina.cryptocurrency.network.response.CryptoCurrencyResponse
 import by.minsk.polina_pasevina.cryptocurrency.network.request.RequestStatus
 import io.reactivex.Observable

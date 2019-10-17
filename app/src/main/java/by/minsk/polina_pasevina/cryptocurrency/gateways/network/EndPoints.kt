@@ -1,4 +1,4 @@
-package by.minsk.polina_pasevina.cryptocurrency.network.utils
+package by.minsk.polina_pasevina.cryptocurrency.gateways.network
 
 object EndPoints {
     const val BASE_URL = "https://pro-api.coinmarketcap.com/v1/"

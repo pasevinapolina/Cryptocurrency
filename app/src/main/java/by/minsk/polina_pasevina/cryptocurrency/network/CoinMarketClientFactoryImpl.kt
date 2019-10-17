@@ -1,7 +1,6 @@
 package by.minsk.polina_pasevina.cryptocurrency.network
 
-import by.minsk.polina_pasevina.cryptocurrency.network.utils.EndPoints
-import by.minsk.polina_pasevina.cryptocurrency.gateways.providers.ClientProvider
+import by.minsk.polina_pasevina.cryptocurrency.gateways.network.EndPoints
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import retrofit2.Retrofit

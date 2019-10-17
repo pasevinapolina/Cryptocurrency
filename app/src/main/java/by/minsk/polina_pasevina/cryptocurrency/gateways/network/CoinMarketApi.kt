@@ -1,4 +1,4 @@
-package by.minsk.polina_pasevina.cryptocurrency.network
+package by.minsk.polina_pasevina.cryptocurrency.gateways.network
 
 import by.minsk.polina_pasevina.cryptocurrency.entities.QuoteType
 import by.minsk.polina_pasevina.cryptocurrency.network.request.RequestState
